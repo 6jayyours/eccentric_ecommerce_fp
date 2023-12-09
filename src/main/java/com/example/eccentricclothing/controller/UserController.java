@@ -496,6 +496,11 @@ public class UserController {
         return "showproducts";
     }
 
+    @GetMapping("/wallet")
+    public  String getWallet(Model model) {
+        return "wallet";
+    }
+
 
 
 
@@ -517,6 +522,7 @@ public class UserController {
             return "productnotfound";
         }
     }
+
 
 
 }

@@ -4,8 +4,10 @@ import com.example.eccentricclothing.OrderNotFoundException;
 import com.example.eccentricclothing.model.Order;
 import com.example.eccentricclothing.model.OrderStatusUpdate;
 import com.example.eccentricclothing.model.User;
+import com.example.eccentricclothing.model.Wallet;
 import com.example.eccentricclothing.repository.OrderRepository;
 import com.example.eccentricclothing.repository.OrderStatusUpdateRepository;
+import com.example.eccentricclothing.repository.WalletRepository;
 import com.example.eccentricclothing.util.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,9 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private WalletRepository walletRepository;
 
     @Autowired
     private OrderStatusUpdateRepository orderStatusUpdateRepository;
@@ -72,7 +77,21 @@ public class OrderService {
         Optional<Order> optionalOrder = orderRepository.findById(orderId);
         Order order = optionalOrder.get();
         order.setStatus(OrderStatus.CANCELED);
+
+        if (order.getPaymentMethod().equals("Razorpay")) {
+            returnAmountToWallet(order);
+        }
         orderRepository.save(order);
+
+    }
+
+
+    private void returnAmountToWallet(Order order) {
+        User user = order.getUser();
+        Wallet wallet = new Wallet();
+        wallet.setAmount(0);
+        wallet.setUser(order.getUser());
+        walletRepository.save(wallet);
 
     }
 

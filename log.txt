@@ -2443,3 +2443,6 @@ javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not ac
 2023-12-09 16:51:42.696 DEBUG 9536 --- [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /error
 2023-12-09 16:51:42.713 DEBUG 9536 --- [http-nio-8081-exec-5] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
 2023-12-09 16:51:42.713 DEBUG 9536 --- [http-nio-8081-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2023-12-09 17:10:12.615  INFO 9536 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-09 17:10:12.640  INFO 9536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-09 17:10:12.739  INFO 9536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
