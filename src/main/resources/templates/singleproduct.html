@@ -28,13 +28,13 @@
             <div class="col-lg-8">
                 <div class = "row">
                     <div class="left-images" >
-                        <img class="img-fluid small-image" height="60px" width="60px" th:src="@{'/productImages/' + ${imageNames[0]}}" alt="" id="mainImage">
+                        <img class="img-fluid small-image" height="60px" width="60px" th:src="@{'/productimages/' + ${imageNames[0]}}" alt="" id="mainImage">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-2" th:each="imageName : ${imageNames}" th:data-image="${imageName}" onclick="changeMainImage(this)">
                         <div class="main-image">
-                            <img class="img-fluid  zoom" height="300px" width="300px" th:src="@{'/productImages/' + ${imageName}}"  alt="">
+                            <img class="img-fluid  zoom" height="300px" width="300px" th:src="@{'/productimages/' + ${imageName}}"  alt="">
                         </div>
                     </div>
                 </div>

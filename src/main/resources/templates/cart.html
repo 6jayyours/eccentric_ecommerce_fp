@@ -108,7 +108,7 @@
 
             <div class="row g-0" th:each="cartitem : ${cart}">
                 <div class="col-md-4">
-                    <img class="card-img card-img-left" alt="Card image" th:src="@{${'/productImages/' + cartitem.images[0].imageName}}">
+                    <img class="card-img card-img-left" alt="Card image" th:src="@{${'/productimages/' + cartitem.images[0].imageName}}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
